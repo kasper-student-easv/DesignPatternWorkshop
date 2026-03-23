@@ -118,7 +118,6 @@
         <Button onAction="#btnSendConfig" style="-fx-background-color:#81C784;" text="Send config" />
         <Button onAction="#btnReadResult" style="-fx-background-color:#FFD54F;" text="Read result" />
         <Button onAction="#btnResetResult" style="-fx-background-color:#64B5F6;" text="Reset result" />
-        <Button onAction="#btnLoadTemplate" style="-fx-background-color:#BA68C8;" text="Load template..." />
     </HBox>
    <HBox alignment="CENTER_LEFT">
       <children>

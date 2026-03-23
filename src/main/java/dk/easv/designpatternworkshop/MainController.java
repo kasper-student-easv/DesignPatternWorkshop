@@ -22,7 +22,4 @@ public class MainController {
 
     public void btnResetResult(ActionEvent actionEvent) {
     }
-
-    public void btnLoadTemplate(ActionEvent actionEvent) {
-    }
 }
