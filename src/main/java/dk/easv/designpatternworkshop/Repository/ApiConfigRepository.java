@@ -39,4 +39,4 @@ public class ApiConfigRepository implements ConfigRepository {
             return configs;
         }
     }
-}
+
