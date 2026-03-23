@@ -1,106 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox spacing="10" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="dk.easv.designpatternworkshop.MainController">
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/24.0.1" fx:controller="dk.easv.designpatternworkshop.MainController">
 
     <padding>
-        <Insets top="15" right="15" bottom="15" left="15"/>
+        <Insets bottom="15" left="15" right="15" top="15" />
     </padding>
 
     <!-- Title -->
-    <Label text="ARDF Fox Serial Configurator"
-           style="-fx-font-size:18px; -fx-font-weight:bold;"/>
-    <Label text="Built for RFzero™ www.rfzero.net"/>
+    <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="ARDF Fox Serial Configurator" />
+    <Label text="Built for RFzero™ www.rfzero.net" />
 
     <!-- COM Port Row -->
-    <HBox spacing="10">
-        <Label text="COM port:"/>
-        <ComboBox fx:id="comPort" prefWidth="150"/>
-        <Button text="Reload"/>
-        <Button text="Connect..."/>
-        <Button text="Disconnect..." disable="true"/>
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="COM port:" />
+        <ComboBox fx:id="cbComPort" prefWidth="150" />
+        <Button onAction="#btnReload" text="Reload" />
+        <Button onAction="#btnConnect" text="Connect" />
+        <Button disable="true" onAction="#btnDisconnect" text="Disconnect" />
     </HBox>
 
     <!-- Main Form -->
-    <GridPane hgap="10" vgap="8">
+    <GridPane hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="570.0" vgap="8">
 
         <columnConstraints>
-            <ColumnConstraints percentWidth="45"/>
-            <ColumnConstraints percentWidth="55"/>
+            <ColumnConstraints percentWidth="45" />
+            <ColumnConstraints percentWidth="55" />
         </columnConstraints>
 
         <!-- Row 1 -->
-        <Label text="Test begin time:" GridPane.rowIndex="0"/>
-        <TextField GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Label text="Test begin time:" GridPane.rowIndex="0" />
+        <TextField fx:id="txtTestBeginTime" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-        <Label text="Hunting begin time:" GridPane.rowIndex="1"/>
-        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label text="Hunting begin time:" GridPane.rowIndex="1" />
+        <TextField fx:id="txtHuntingBeginTime" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-        <Label text="Hunting stop time:" GridPane.rowIndex="2"/>
-        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Label text="Hunting stop time:" GridPane.rowIndex="2" />
+        <TextField fx:id="txtHuntingStopTime" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-        <Label text="Fox ID:" GridPane.rowIndex="3"/>
-        <ComboBox GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <Label text="Fox ID:" GridPane.rowIndex="3" />
+        <ComboBox fx:id="cbFoxId" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-        <Label text="Nominal frequency in Hz:" GridPane.rowIndex="4"/>
-        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <Label text="Nominal frequency in Hz:" GridPane.rowIndex="4" />
+        <TextField fx:id="txtNominalFrequency" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-        <Label text="Alternative Fox ID:" GridPane.rowIndex="5"/>
-        <ComboBox GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Label text="Alternative Fox ID:" GridPane.rowIndex="5" />
+        <ComboBox fx:id="cbAlternativeFoxId" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-        <Label text="Alternative frequency in Hz:" GridPane.rowIndex="6"/>
-        <TextField GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label text="Alternative frequency in Hz:" GridPane.rowIndex="6" />
+        <TextField fx:id="txtAlternativeFrequency" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
-        <Label text="Repeat period (minutes):" GridPane.rowIndex="7"/>
-        <ComboBox GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label text="Repeat period (minutes):" GridPane.rowIndex="7" />
+        <ComboBox fx:id="cbRepeatPeriod" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-        <Label text="Competition style:" GridPane.rowIndex="8"/>
-        <ComboBox GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+        <Label text="Competition style:" GridPane.rowIndex="8" />
+        <ComboBox fx:id="cbCompetitionStyle" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
 
-        <Label text="Reference start frequency in Hz:" GridPane.rowIndex="9"/>
-        <TextField GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+        <Label text="Reference start frequency in Hz:" GridPane.rowIndex="9" />
+        <TextField fx:id="txtReferenceStartFrequency" prefWidth="292.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
 
-        <Label text="Echo GPS data to USB port:" GridPane.rowIndex="10"/>
-        <ComboBox GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+        <Label text="Echo GPS data to USB port:" GridPane.rowIndex="10" />
+        <ComboBox fx:id="cbGpsToUsb" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
 
         <!-- Offset UTC -->
-        <Label text="Offset to UTC Hours / Minutes:" GridPane.rowIndex="11"/>
-        <HBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="11">
-            <Label text="Hours"/>
-            <TextField prefWidth="60"/>
-            <Label text="Minutes"/>
-            <TextField prefWidth="60"/>
+        <Label text="Offset to UTC Hours / Minutes:" GridPane.rowIndex="11" />
+        <HBox alignment="CENTER_LEFT" spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="11">
+            <Label minWidth="-Infinity" prefWidth="35.0" text="Hours:" />
+            <TextField fx:id="txtHours" />
+            <Label minWidth="-Infinity" prefWidth="46.0" text="Minutes:" />
+            <TextField fx:id="txtMinutes" />
         </HBox>
 
-        <Label text="Keying style:" GridPane.rowIndex="12"/>
-        <ComboBox GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+        <Label text="Keying style:" GridPane.rowIndex="12" />
+        <ComboBox fx:id="cbKeyingStyle" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
 
         <!-- CW Speed -->
-        <Label text="CW speed:" GridPane.rowIndex="13"/>
-        <HBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="13">
-            <TextField promptText="WPM"/>
-            <Label text="/"/>
-            <TextField promptText="LPM"/>
+        <Label text="CW speed:" GridPane.rowIndex="13" />
+        <HBox alignment="CENTER" spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="13">
+            <TextField fx:id="txtWpm" promptText="WPM" />
+            <Label text="/" />
+            <TextField fx:id="txtLpm" promptText="LPM" />
         </HBox>
 
-        <Label text="Fox call (max 15 characters):" GridPane.rowIndex="14"/>
-        <TextField GridPane.columnIndex="1" GridPane.rowIndex="14"/>
+        <Label text="Fox call (max 15 characters):" GridPane.rowIndex="14" />
+        <TextField fx:id="txtFoxCall" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
 
     </GridPane>
 
     <!-- Buttons -->
     <HBox spacing="10">
-        <Button text="Send config..." style="-fx-background-color:#81C784;"/>
-        <Button text="Read result" style="-fx-background-color:#FFD54F;"/>
-        <Button text="Reset result" style="-fx-background-color:#64B5F6;"/>
-        <Button text="Load template..." style="-fx-background-color:#BA68C8;"/>
+        <Button onAction="#btnSendConfig" style="-fx-background-color:#81C784;" text="Send config" />
+        <Button onAction="#btnReadResult" style="-fx-background-color:#FFD54F;" text="Read result" />
+        <Button onAction="#btnResetResult" style="-fx-background-color:#64B5F6;" text="Reset result" />
+        <Button onAction="#btnLoadTemplate" style="-fx-background-color:#BA68C8;" text="Load template..." />
     </HBox>
-
-    <!-- Status -->
-    <Label text="Status: Disconnected    Last action:"/>
+   <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+      <children>
+      
+          <!-- Status -->
+          <Label text="Status: ">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+         <Label fx:id="lblStatus" text="(Status example)" />
+         <Label text="Last action: ">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="10.0" />
+            </HBox.margin>
+         </Label>
+         <Label fx:id="lblLastAction" text="(Action example)" />
+      </children>
+   </HBox>
 
 </VBox>
